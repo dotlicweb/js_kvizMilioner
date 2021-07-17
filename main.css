@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+/***********************
+Layout
+***********************/
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.row {
+	display: flex;
+	margin: 0 -15px;
+	flex-wrap: wrap;
+}
+
+.col-1-2,
+.col-1-3,
+.col-2-3,
+.col-1-4 {
+	padding: 0 15px;
+}
+
+.col-1-2 {
+	width: 50%;
+}
+
+.col-1-3 {
+	width: 30%;
+    margin-top: 10px;
+}
+
+.col-2-3 {
+	width: 70%;
+    border-right: 1px solid #333;
+    margin-top: 10px;
+}
+
+.col-1-4 {
+	width: 25%;
+}
+
+.container .row img {
+	width: 100%;
+    height: 480px;
+}
+
+.quizView {
+    display: none;
+}
+.startQuiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 100vh;
+    background: url(img/bgd.jpg);
+    background-size: cover;
+}
+.startQuiz input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 30px;
+    outline: none;
+}
+.startQuiz button {
+    font-size: 30px;
+    padding: 10px 25px;
+    outline: none;
+    border: none;
+    background-color: #f90;
+    color: #fff;
+    border: 1px solid #f90;
+}
+
+.questionNumberCurrent {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+.zagarantovana-suma {
+    background: green;
+    padding: 20px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+.question-box  {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 35px 25px;
+    background: #111;
+    color: #fff;
+    box-shadow: 0 0 8px #ddd;
+    border-radius:0;
+}
+.question {
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+.answers p {
+    margin-bottom: 20px;
+    padding: 15px 25px;
+    box-shadow: 0 0 8px #ddd;
+    background: #111;
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 2px;
+    user-select: none; 
+    height: 57px;
+}
+.answers p:hover {
+    cursor: pointer;
+    background-color: #f90 !important;
+}
+
+
+.col-1-3 .help {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.col-1-3 .help p {
+    border:1px solid #111;
+    border-radius: 50%;
+    padding: 20px;
+    width: 80px;
+    transition: 0.3s ease all;
+}
+.col-1-3 .help p:hover {
+    background: #f90;
+    cursor: pointer;
+}
+.col-1-3 .help .fa {
+    font-size: 20px;
+}
+.col-1-3 .money {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 25px;
+    padding-left: 30px;
+}
+.col-1-3 .money p {
+    display: block;
+    padding: 10px 0 10px 10px;
+    font-size: 23px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.col-1-3 .money p:first-child {
+    border-bottom: none;
+}
+.col-1-3 .money span {
+    margin-left: 80px;
+}
+
+
+.orange  {
+    background-color: #f90;
+}
+.red {
+    color: red;
+}
+.gray {
+    background: #ccc;
+    color: #000;
+}
+.bold {
+    font-weight: bold;
+}
+
+
+.congrats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100vh;
+    display: none;
+}
+.congrats img {
+    width: 40%;
+}
+.congrats h3 {
+    margin-top: 50px;
+    font-size: 50px;
+    background: gold;
+    border-radius: 30px;
+    color: #111;
+    padding: 20px 50px;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: none; /* Hidden by default */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #666;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    display: none;
+    margin-right: 10px;
+    color: red;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal p {
+      text-align: left;
+      padding: 10px 0;
+      font-size: 20px;
+  }
+  .modal .timer {
+      font-size: 18px;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+  .timer-bgd {
+      background: #f90;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+  }
+
+  .ml20 {
+      margin-left: 20px;
+  }
+
+
+  .showList, .showUsers {
+      display: none;
+  }
+  .showUsers {
+      background-color: #CCCCCC;
+      color: #111;
+      padding: 15px 25px;
+      border: none;
+      cursor: pointer;
+       transition: .2s ease all;
+       position: fixed;
+       bottom: 0;
+       left: 0;
+    }
+  .showUsers:hover {
+      background: #f90;
+  }
+
+  #customers {
+    border-collapse: collapse;
+    width: 30%;
+    margin: 20px auto;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 20px 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+    text-align: center;
+    background-color: #f90;
+    padding: 15px 8px;
+  }
